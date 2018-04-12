@@ -1,8 +1,84 @@
+$purple: #542583; 
+$gold: #FDB827;
+
+.wrap {
+	margin-top: 200px;
+	text-align: center;
+	vertical-align: center;
+}
+
 .spinner {
 	width: 100px;
-	height: 100px;
-	background-color: #eee;
+	height: 100px;	
 	border-radius: 50%;
 	position: relative;
+	display: inline-block;
+
+	&:after, &:before {
+		content: '';
+		display: block;
+		width: 100px;
+		height: 100px;						
+		border-radius: 50%;
+		opacity: .7;			
+	}	
+	
 }
+
+.spinner-1 {
+	animation: spin 2s linear infinite;
+	
+	&:before, &:after {
+		height: 100px;
+		width: 100px;		
+		position: absolute;
+		top: -50px;
+		left: 50%;
+		margin-left: -50px;
+	}
+
+	&:before {
+		animation: spin 2.5s linear infinite;
+		background-color: $gold;		
+	};
+
+	&:after {
+		animation: spin 2.5s linear infinite;
+		animation-delay: 0.5s;
+		background-color: $purple;
+		top: auto;
+		bottom: -50px;
+		/*opacity: 0.4;*/
+	}
+
+
+}
+
+@keyframes spin {
+	0%{
+		transform: rotate(0deg);		
+	}
+	100% {
+		transform: rotate(360deg);		
+	}
+}
+
+@keyframes grow {
+	0% {
+		transform: scale(1.0, 1.0);
+		
+	}
+
+	50% {
+		transform: scale(2.3, 2.3);		
+	}
+
+	100% {
+		transform: scale(1.0, 1.0);
+	}
+}
+
+
+
+
 
